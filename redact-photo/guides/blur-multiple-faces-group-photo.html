@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blur Multiple Faces in a Group Photo Automatically</title>
+  <meta name="description" content="Stop tracing faces one by one. On-device AI detects every face in a group photo — tune sensitivity, preview, and mask everyone in one pass on iPhone.">
+  <link rel="canonical" href="https://vbpaixao.me/redact-photo/guides/blur-multiple-faces-group-photo.html">
+  <meta name="theme-color" content="#171c2b">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Redact Photo: Censor & Blur">
+  <meta property="og:title" content="Blur Multiple Faces in a Group Photo Automatically">
+  <meta property="og:description" content="Stop tracing faces one by one. On-device AI detects every face in a group photo — tune sensitivity, preview, and mask everyone in one pass on iPhone.">
+  <meta property="og:url" content="https://vbpaixao.me/redact-photo/guides/blur-multiple-faces-group-photo.html">
+  <meta property="og:image" content="https://vbpaixao.me/redact-photo/images/screenshot-2.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="512x512" href="../images/icon-512.png">
+  <link rel="apple-touch-icon" href="../images/icon-180.png">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vbpaixao.me/redact-photo/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://vbpaixao.me/redact-photo/#guides"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Blur Multiple Faces in a Group Photo \u2014 Automatically",
+      "item": "https://vbpaixao.me/redact-photo/guides/blur-multiple-faces-group-photo.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Blur Multiple Faces in a Group Photo \u2014 Automatically",
+  "description": "Stop tracing faces one by one. On-device AI detects every face in a group photo \u2014 tune sensitivity, preview, and mask everyone in one pass on iPhone.",
+  "totalTime": "PT2M",
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "Redact Photo: Censor & Blur (iOS app)"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Open the group photo",
+      "text": "Any photo, any number of people. Processing is on-device, so crowd shots don't get uploaded anywhere."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Enable Auto-Anonymizer \u2192 Faces",
+      "text": "The AI marks every detected face. Turn on the detection preview to see exactly what it found."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Tune the sensitivity",
+      "text": "The Detection Sensitivity slider (e.g. 50%) controls how aggressive detection is \u2014 raise it to catch small, distant, or partially turned faces; lower it if it's grabbing things that aren't faces."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Pick one mask for everyone and export",
+      "text": "Blur, pixelation, black box, or emoji \u2014 applied to all detected faces at once. Check the result, fix any stragglers with manual selection and zoom, and export."
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../index.html">
+        <img src="../images/icon-180.png" alt="Redact Photo app icon" width="34" height="34">
+        Redact Photo
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../index.html#how-it-works">How It Works</a>
+        <a href="../index.html#screenshots">Screenshots</a>
+        <a href="../index.html#guides">Guides</a>
+        <a href="../index.html#faq">FAQ</a>
+        <a class="nav-cta" href="https://apps.apple.com/us/app/redact-photo-censor-blur/id6749859478">Download</a>
+      </nav>
+    </div>
+  </header>
+  <div class="article-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a> › <a href="../index.html#guides">Guides</a> › <span>Faces</span>
+      </nav>
+      <h1>How to Blur Multiple Faces in a Group Photo — Automatically</h1>
+      <p class="meta">Redact Photo Guides · Updated July 2026 · 3 min read</p>
+    </div>
+  </div>
+
+  <div class="container article-layout">
+    <article class="article-body">
+      <div class="quick-answer"><strong>Quick answer:</strong> Open the group photo in Redact Photo, enable the <em>Auto-Anonymizer</em> with Detection Type set to Faces, and every face is found and masked in a single pass. Raise the detection sensitivity to catch smaller or side-on faces, preview the regions, and export.</div>
+      <p>One face is a chore. Eleven faces at a birthday party, a conference table, or a school event is an afternoon — if you're masking by hand. This is the exact job automatic detection exists for.</p>
+      <h2>Why Manual Blurring Fails at Scale</h2>
+      <p>Tracing masks by finger has two failure modes: you miss someone (the half-face at the edge, the reflection, the person in the background), or you get sloppy (masks that don't fully cover, edges that reveal). When the point is consent or safety — event photos, classroom shots, street photography — “I think I got everyone” isn't a great standard. Detection with a preview turns it into a checklist.</p>
+
+      <h2>Mask Every Face in One Pass (Step by Step)</h2>
+      <ol class="step-list">
+        <li><strong>Open the group photo</strong>Any photo, any number of people. Processing is on-device, so crowd shots don't get uploaded anywhere.</li>
+        <li><strong>Enable Auto-Anonymizer → Faces</strong>The AI marks every detected face. Turn on the detection preview to see exactly what it found.</li>
+        <li><strong>Tune the sensitivity</strong>The Detection Sensitivity slider (e.g. 50%) controls how aggressive detection is — raise it to catch small, distant, or partially turned faces; lower it if it's grabbing things that aren't faces.</li>
+        <li><strong>Pick one mask for everyone and export</strong>Blur, pixelation, black box, or emoji — applied to all detected faces at once. Check the result, fix any stragglers with manual selection and zoom, and export.</li>
+      </ol>
+
+      <figure class="article-shot">
+        <img src="../images/screenshot-2.png" alt="Four faces in a group beach photo automatically masked with emojis in Redact Photo with sensitivity slider" loading="lazy" width="1242" height="2688">
+        <figcaption>Everyone masked in one pass — sensitivity catches the stragglers.</figcaption>
+      </figure>
+      <h2>Sensitivity Is the Knob That Matters</h2>
+      <p>Group photos are where detection earns its keep: faces at different distances, angles, and lighting. Start at the default, preview, then raise sensitivity until the last background face lights up. One manual rectangle for anything truly odd (a face on a poster, a reflection) finishes the job.</p>
+      <h2>Choose a Mask That Scales</h2>
+      <p>Eleven blurred faces read as “processed”; eleven <a href='emoji-over-faces-iphone.html'>emojis</a> read as fun — pick by audience. For photos of other people's kids, parents tend to appreciate the mask regardless of style; there's a dedicated guide to <a href='hide-childs-face-social-media.html'>masking children's faces</a>.</p>
+
+      <div class="inline-cta">
+        <h3>Try it on your own photos</h3>
+        <p>Redact Photo is free to download with a fully unlocked 3-day free trial — mask your first photo in the next two minutes, without it leaving your phone.</p>
+        <a class="btn" href="https://apps.apple.com/us/app/redact-photo-censor-blur/id6749859478">Get Redact Photo on the App Store</a>
+      </div>
+    </article>
+
+    <aside class="article-aside">
+      <div class="aside-card">
+        <img class="app-icon" src="../images/icon-512.png" alt="Redact Photo: Censor & Blur app icon" width="72" height="72">
+        <h3>Redact Photo: Censor & Blur</h3>
+        <p>AI-detected faces &amp; text, masked with blur, pixelation, black box, or emoji — plus EXIF scrubbing and PDF export. 100% on-device.</p>
+        <a class="btn" href="https://apps.apple.com/us/app/redact-photo-censor-blur/id6749859478">Download Free</a>
+      </div>
+      <div class="aside-card aside-links">
+        <h3>Related guides</h3>
+        <ul>
+          <li><a href="blur-faces-in-photos-iphone.html">How to Blur Faces in Photos on iPhone</a></li>
+          <li><a href="emoji-over-faces-iphone.html">How to Put an Emoji Over a Face on iPhone</a></li>
+          <li><a href="hide-childs-face-social-media.html">How to Hide Your Child's Face Before Posting Photos</a></li>
+          <li><a href="../index.html#guides">All guides →</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="../images/icon-180.png" alt="Redact Photo app icon" width="32" height="32">
+            Redact Photo: Censor & Blur
+          </div>
+          <p>AI-powered photo redaction on iPhone — blur, pixelate, black-box, or emoji faces and text, 100% on-device.</p>
+          <p style="margin-top:12px;">More apps by <a href="/">Vitor Paixao</a>: <a href="/smartmerge/">SmartMerge</a> · <a href="/photo-converter/">Photo Converter</a></p>
+        </div>
+        <div>
+          <h4>Popular Guides</h4>
+          <ul>
+            <li><a href="blur-faces-in-photos-iphone.html">Blur faces in photos on iPhone</a></li>
+            <li><a href="hide-childs-face-social-media.html">Hide your child's face before posting</a></li>
+            <li><a href="redact-screenshot-iphone.html">Redact a screenshot</a></li>
+            <li><a href="is-blurring-text-safe.html">Can blurred text be recovered?</a></li>
+            <li><a href="blur-license-plate-photo.html">Blur a license plate</a></li>
+            <li><a href="share-photos-anonymously-iphone.html">Share photos anonymously</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>App</h4>
+          <ul>
+            <li><a href="https://apps.apple.com/us/app/redact-photo-censor-blur/id6749859478">Download on the App Store</a></li>
+            <li><a href="../index.html#how-it-works">How it works</a></li>
+            <li><a href="../index.html#screenshots">Screenshots</a></li>
+            <li><a href="../index.html#guides">All guides</a></li>
+            <li><a href="../index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Vitor Manuel Paixao. All rights reserved. Apple, the Apple logo, iPhone, and App Store are trademarks of Apple Inc.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
