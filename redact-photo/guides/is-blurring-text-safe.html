@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Can Blurred Text Be Recovered? What Research Says</title>
-  <meta name="description" content="Security researchers have reversed blurred and pixelated text with tools like Depix and Unredacter. When blur is enough — and when only a black box is safe.">
+  <meta name="description" content="Security researchers have reversed blurred and pixelated text with tools like Depix and Unredacter. When blur is enough, and when only a black box is safe.">
   <link rel="canonical" href="https://vbpaixao.me/redact-photo/guides/is-blurring-text-safe.html">
   <meta name="theme-color" content="#171c2b">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Redact Photo: Censor & Blur">
   <meta property="og:title" content="Can Blurred Text Be Recovered? What Research Says">
-  <meta property="og:description" content="Security researchers have reversed blurred and pixelated text with tools like Depix and Unredacter. When blur is enough — and when only a black box is safe.">
+  <meta property="og:description" content="Security researchers have reversed blurred and pixelated text with tools like Depix and Unredacter. When blur is enough, and when only a black box is safe.">
   <meta property="og:url" content="https://vbpaixao.me/redact-photo/guides/is-blurring-text-safe.html">
   <meta property="og:image" content="https://vbpaixao.me/redact-photo/images/screenshot-3.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -114,33 +114,33 @@
 
   <div class="container article-layout">
     <article class="article-body">
-      <div class="quick-answer"><strong>Quick answer:</strong> Sometimes, yes. Security researchers have reconstructed lightly blurred and coarsely pixelated <em>text</em> using tools like Depix and Unredacter, because fonts are predictable. Rule of thumb: blur and pixelation are fine for faces and casual hiding; for sensitive text — numbers, names, credentials — use a fully opaque black box, flattened into the image.</div>
-      <p>You blurred the account number before posting the screenshot. Is it actually gone? This is one of the rare privacy questions with real experimental evidence — and the answer should change how you redact.</p>
+      <div class="quick-answer"><strong>Quick answer:</strong> Sometimes, yes. Security researchers have reconstructed lightly blurred and coarsely pixelated <em>text</em> using tools like Depix and Unredacter, because fonts are predictable. Rule of thumb: blur and pixelation are fine for faces and casual hiding; for sensitive text, numbers, names, credentials: use a fully opaque black box, flattened into the image.</div>
+      <p>You blurred the account number before posting the screenshot. Is it actually gone? This is one of the rare privacy questions with real experimental evidence, and the answer should change how you redact.</p>
       <h2>The Uncomfortable Research</h2>
       <p>Multiple public projects have demonstrated recovery of “hidden” text: <strong>Depix</strong> reconstructs pixelated text by matching mosaic blocks against rendered candidate characters, and <strong>Unredacter</strong> extended the attack to more fonts and settings. Deblurring models have similarly sharpened lightly blurred text back to readability. Security publications have run the experiment end-to-end and reached the same conclusion: light blur on clean text is obfuscation, not redaction.</p>
       <h2>Why Text Is the Weak Case</h2>
-      <p>Text is uniquely recoverable because the search space is tiny: a few dozen characters, in a predictable font, at a guessable size, on a flat background — a constraint-solving problem, not magic. Faces are much harder to reconstruct from a proper blur (there's no small alphabet of faces), though a weak blur can still leave someone recognizable to people who know them. The practical hierarchy, from weakest to strongest: light blur → heavy blur → coarse pixelation → <strong>opaque black box</strong>.</p>
+      <p>Text is uniquely recoverable because the search space is tiny: a few dozen characters, in a predictable font, at a guessable size, on a flat background: a constraint-solving problem, not magic. Faces are much harder to reconstruct from a proper blur (there's no small alphabet of faces), though a weak blur can still leave someone recognizable to people who know them. The practical hierarchy, from weakest to strongest: light blur → heavy blur → coarse pixelation → <strong>opaque black box</strong>.</p>
 
       <h2>Redact So There's Nothing to Recover (Step by Step)</h2>
       <ol class="step-list">
         <li><strong>Decide: identity or information?</strong>Hiding a face (identity) and hiding text (information) are different problems. Faces tolerate blur and pixelation; sensitive text should get full opacity.</li>
-        <li><strong>Use Black Box for sensitive text</strong>In Redact Photo, apply the Black Box style over account numbers, names, addresses, and credentials — 100% opaque, no residual signal underneath.</li>
-        <li><strong>Confirm the mask is flattened, not layered</strong>Redact Photo bakes masks into the exported pixels — there is no blur layer to remove. (This is the failure mode of annotation tools that draw over the image and save layers.)</li>
+        <li><strong>Use Black Box for sensitive text</strong>In Redact Photo, apply the Black Box style over account numbers, names, addresses, and credentials: 100% opaque, no residual signal underneath.</li>
+        <li><strong>Confirm the mask is flattened, not layered</strong>Redact Photo bakes masks into the exported pixels, there is no blur layer to remove. (This is the failure mode of annotation tools that draw over the image and save layers.)</li>
         <li><strong>Strip the metadata too</strong>Recovery isn't only optical: EXIF can carry location and timestamps. Clear it in the same export.</li>
       </ol>
 
       <figure class="article-shot">
-        <img src="../images/screenshot-3.png" alt="A fully opaque black box redaction over a face in Redact Photo — the mask style with nothing to recover" loading="lazy" width="1242" height="2688">
+        <img src="../images/screenshot-3.png" alt="A fully opaque black box redaction over a face in Redact Photo, the mask style with nothing to recover" loading="lazy" width="1242" height="2688">
         <figcaption>Opaque and flattened: nothing underneath to enhance.</figcaption>
       </figure>
       <h2>So When Is Blur Fine?</h2>
-      <p>Most of the time. Blurring a stranger's face in a travel photo, softening a messy background, masking a friend's expression for comedy — none of that is under attack from reconstruction tools, and blur (or <a href='pixelate-photo-iphone.html'>pixelation</a>) keeps photos looking natural. The rule engages when the hidden content is text someone would benefit from reading: then, and only then, blur is the wrong tool — reach for the box.</p>
+      <p>Most of the time. Blurring a stranger's face in a travel photo, softening a messy background, masking a friend's expression for comedy: none of that is under attack from reconstruction tools, and blur (or <a href='pixelate-photo-iphone.html'>pixelation</a>) keeps photos looking natural. The rule engages when the hidden content is text someone would benefit from reading: then, and only then, blur is the wrong tool: reach for the box.</p>
       <h2>Where This Bites in Practice</h2>
-      <p>The classic victims are <a href='redact-screenshot-iphone.html'>screenshots</a> (clean fonts on flat backgrounds — ideal attack conditions) and <a href='redact-documents-iphone.html'>photographed documents</a>. Both guides default to black-box for exactly this reason.</p>
+      <p>The classic victims are <a href='redact-screenshot-iphone.html'>screenshots</a> (clean fonts on flat backgrounds, ideal attack conditions) and <a href='redact-documents-iphone.html'>photographed documents</a>. Both guides default to black-box for exactly this reason.</p>
 
       <div class="inline-cta">
         <h3>Try it on your own photos</h3>
-        <p>Redact Photo is free to download with a fully unlocked 3-day free trial — mask your first photo in the next two minutes, without it leaving your phone.</p>
+        <p>Redact Photo is free to download with a fully unlocked 3-day free trial, mask your first photo in the next two minutes, without it leaving your phone.</p>
         <a class="btn" href="https://apps.apple.com/app/apple-store/id6749859478?pt=126421698&amp;ct=website&amp;mt=8">Get Redact Photo on the App Store</a>
       </div>
     </article>
@@ -149,7 +149,7 @@
       <div class="aside-card">
         <img class="app-icon" src="../images/icon-512.png" alt="Redact Photo: Censor & Blur app icon" width="72" height="72">
         <h3>Redact Photo: Censor & Blur</h3>
-        <p>AI-detected faces &amp; text, masked with blur, pixelation, black box, or emoji — plus EXIF scrubbing and PDF export. 100% on-device.</p>
+        <p>AI-detected faces &amp; text, masked with blur, pixelation, black box, or emoji: plus EXIF scrubbing and PDF export. 100% on-device.</p>
         <a class="btn" href="https://apps.apple.com/app/apple-store/id6749859478?pt=126421698&amp;ct=website&amp;mt=8">Download Free</a>
       </div>
       <div class="aside-card aside-links">
@@ -171,7 +171,7 @@
             <img src="../images/icon-180.png" alt="Redact Photo app icon" width="32" height="32">
             Redact Photo: Censor & Blur
           </div>
-          <p>AI-powered photo redaction on iPhone — blur, pixelate, black-box, or emoji faces and text, 100% on-device.</p>
+          <p>AI-powered photo redaction on iPhone, blur, pixelate, black-box, or emoji faces and text, 100% on-device.</p>
           <p style="margin-top:12px;">More apps by <a href="/">Vitor Paixao</a>: <a href="/smartmerge/">SmartMerge</a> · <a href="/photo-converter/">Photo Converter</a></p>
         </div>
         <div>
